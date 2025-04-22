@@ -41,9 +41,9 @@ class Script(scripts.Script):
                 with gr.Row():
                     dimension_increment_factor = gr.Dropdown(label='Dimension Increase:', choices=self.dim_increase_options, value="Linear", elem_id=self.elem_id("dimension_increment_factor"))
                 with gr.Row():
-                    loops = gr.Slider(minimum=1, maximum=32, step=1, label='Loops:', value=4, elem_id=self.elem_id("loops"))
+                    loops = gr.Slider(minimum=1, maximum=4000, step=1, label='Loops:', value=1200, elem_id=self.elem_id("loops"))
                 with gr.Row():
-                    denoising_strength_change_factor = gr.Slider(minimum=0.9, maximum=1.1, step=0.01, label='Denoise Change:', value=1, elem_id=self.elem_id("denoising_strength_change_factor"))            
+                    denoising_strength_change_factor = gr.Slider(minimum=0, maximum=1, step=0.01, label='Denoise Change:', value=0.55, elem_id=self.elem_id("denoising_strength_change_factor"))            
             with gr.Box():
                 with gr.Row():
                     max_width = gr.Slider(minimum=512, maximum=4096, step=64, label='Maximum Image Width:', value=1024, elem_id=self.elem_id("max_width"))
