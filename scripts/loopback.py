@@ -46,6 +46,7 @@ class Script(scripts.Script):
         # 解析JSON提示词
         prompt_map = {}
         sorted_thresholds = []
+        original_prompt=original_prompt.replace("},","}")
         try:
             if original_prompt.strip().startswith("{"):
                 prompt_map = json.loads(original_prompt)
@@ -55,7 +56,8 @@ class Script(scripts.Script):
                 prompt_map = {str(k): v for k, v in prompt_map.items()}
         except Exception as e:
             print(f"Prompt parsing error: {str(e)}")
-
+        
+        print("=====》》提示词格式化成功《《=====")
         # 初始化参数
         p.extra_generation_params = {
             "Final Denoising": final_denoising,
